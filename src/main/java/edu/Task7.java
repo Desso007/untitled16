@@ -3,7 +3,7 @@ package edu;
 public class Task7 {
     public static void main(String[] args) {
         // Содержит не менее 3 символов, причем третий символ равен 0
-        String regex1 = ".*0.{2,}.*";
+        String regex1 = ".*0..*";
         // Начинается и заканчивается одним и тем же символом
         String regex2 = "^(0|1)(.*)(\\1)$";
         // Длина не менее 1 и не более 3
