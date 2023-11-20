@@ -1,22 +1,18 @@
 package edu;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 public class Task6 {
     public static boolean isSubsequence(String s, String t) {
-        // Экранируем специальные символы, которые могут влиять на регулярное выражение
-        String escapedS = s.replaceAll("([\\\\.\\[\\]\\(\\)\\{\\}\\^\\$\\|\\?\\*\\+])", "\\\\$1");
+        int sIndex = 0;
+        int tIndex = 0;
 
-        // Строим регулярное выражение для поиска подпоследовательности
-        String regex = ".*" + escapedS + ".*";
+        while (sIndex < s.length() && tIndex < t.length()) {
+            if (s.charAt(sIndex) == t.charAt(tIndex)) {
+                sIndex++;
+            }
+            tIndex++;
+        }
 
-        // Компилируем регулярное выражение
-        Pattern pattern = Pattern.compile(regex);
-
-        // Используем Matcher для поиска соответствия
-        Matcher matcher = pattern.matcher(t);
-
-        // Возвращает true, если найдено соответствие
-        return matcher.matches();
+        return sIndex == s.length();
     }
 
     public static void main(String[] args) {
