@@ -39,7 +39,14 @@ public class Task2 {
         }
 
         public static LocalDate findNextFridayThirteenth(LocalDate currentDate) {
-            return currentDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.FRIDAY)).withDayOfMonth(13);
+            LocalDate nextFriday = currentDate.with(TemporalAdjusters.next(DayOfWeek.FRIDAY));
+            
+            while (nextFriday.getDayOfMonth() != 13) {
+                nextFriday = nextFriday.with(TemporalAdjusters.next(DayOfWeek.FRIDAY));
+            }
+
+            return nextFriday;
         }
     }
 }
+
