@@ -1,4 +1,5 @@
 package edu;
+
 import java.util.regex.Pattern;
 
 public class Task8 {
@@ -15,7 +16,7 @@ public class Task8 {
         }
 
         // Начинается с 0 и имеет нечетную длину, или начинается с 1 и имеет четную длину
-        String regex2 = "^(0(..)*.|1(..)*(..))$";
+        String regex2 = "^(0(..)*1$|1(..)*0$|0|1)$";
         System.out.println("\nНачинается с 0 и имеет нечетную длину, или начинается с 1 и имеет четную длину:");
         for (String str : strings) {
             boolean match = Pattern.matches(regex2, str);
@@ -47,8 +48,7 @@ public class Task8 {
         }
 
         // Содержит не менее двух 0 и не более одной 1
-        String regex6;
-        regex6 = "^(.*0){2}[^1]*$";
+        String regex6 = "^(.*0){2}[^1]*$";
         System.out.println("\nСодержит не менее двух 0 и не более одной 1:");
         for (String str : strings) {
             boolean match = Pattern.matches(regex6, str);
